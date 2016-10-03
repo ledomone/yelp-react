@@ -27,5 +27,12 @@ var config = getConfig({
 	clearBeforeBuild: true
 });
 
+// postcss
+config.postcss = [].concat([
+	require('precss')({}),
+	require('autoprefixer')({}),
+	require('cssnano')({})
+])
+// END postcss
 
 module.exports = config;

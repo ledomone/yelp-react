@@ -89,4 +89,14 @@ config.postcss = [].concat([
 ])
 // END postcss
 
+// Roots
+config.resolve.root = [src, modules]
+config.resolve.alias = {
+	'css': join(src, 'styles'),
+	'containers': join(src, 'containers'),
+	'components': join(src, 'components'),
+	'utils': join(src, 'utils')
+}
+// END Roots
+
 module.exports = config;

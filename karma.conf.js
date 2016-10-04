@@ -1,5 +1,6 @@
 var path = require('path');
 var webpackConfig = require('./webpack.config');
+var argv = require('yargs').argv;
 
 // Karma configuration
 
@@ -64,5 +65,7 @@ module.exports = function(config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['PhantomJS'],
-  })
+
+    singleRun: !argv.watch
+  });
 }

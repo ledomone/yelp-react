@@ -13,6 +13,7 @@ const getConfig = require('hjs-webpack');
 
 
 const isDev = NODE_ENV === 'development';
+const isTest = NODE_ENV === 'test';
 
 
 const root = resolve(__dirname);
@@ -27,6 +28,28 @@ var config = getConfig({
 	out: dest,
 	clearBeforeBuild: true
 });
+
+
+// Testing
+if (isTest) {
+	config.externals = {
+		'react/lib/ReactContext': true,
+		'react/lib/ExecutionEnvironment': true,
+		'react/addons': true
+	}
+
+	config.plugins = config.plugins.filter(p => {
+		const name = p.constructor.toString();
+		const fnName = name.match(/^function (.*)\((.*\))/)
+
+		const idx = [
+			'DedupePlugin',
+			'UglifyJsPlugin'
+		].indexOf(fnName[1]);
+		return idx < 0;
+	})
+}
+// END Testing
 
 // ENV variables
 const dotEnvVars = dotenv.config();

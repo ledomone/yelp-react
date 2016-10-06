@@ -65,6 +65,7 @@
   "dependencies": {
     "cross-env": "^3.0.0",
     "font-awesome": "^4.6.3",
+    "google-maps-react": "^1.0.18",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^2.8.1"

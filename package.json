@@ -63,6 +63,7 @@
     "yargs": "^6.0.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "cross-env": "^3.0.0",
     "font-awesome": "^4.6.3",
     "google-maps-react": "^1.0.18",

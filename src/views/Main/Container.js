@@ -5,6 +5,7 @@ import {searchNearby} from 'utils/googleApiHelpers'
 // our webpack alias allows us to reference `components`
 // relatively to the src/ directory
 import Header from 'components/Header/Header'
+import Sidebar from 'components/Sidebar/Sidebar'
 
 import styles from './styles.module.css'
 
@@ -46,11 +47,15 @@ export class Container extends React.Component {
 					className={styles.wrapper}>
 
 					<Header />
-					<div className={styles.content}>
-						{this.state.places.map(place => {
-							return (<div key={place.id}>{place.name}</div>)
-						})}
-					</div>
+					<Sidebar
+						title={'Restaurants'}
+						places={this.state.places} />
+
+					 <div className={styles.content}>
+					 	{this.state.places.map(place => {
+					 		return (<div key={place.id}>{place.name}</div>)
+					 	})}
+					 </div>
 				</Map>
 			</div>
 		)

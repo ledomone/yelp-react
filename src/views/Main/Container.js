@@ -37,6 +37,18 @@ export class Container extends React.Component {
 			});
 	}
 	render() {
+		let children = null;
+		if (this.props.children) {
+			// We have children in the Container component
+			children = React.cloneElement(
+				this.props.children,
+				{
+					google: this.props.google,
+					places: this.state.places,
+					loaded: this.props.loaded
+				}
+			);
+		}
 		return (
 			<Map
 				onReady={this.onReady.bind(this)}
@@ -51,7 +63,8 @@ export class Container extends React.Component {
 					places={this.state.places} />
 
 				<div className={styles.content}>
-
+					{/* Setting children routes to be rendered */}
+					{children}
 				</div>
 
 			</Map>

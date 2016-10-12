@@ -7,6 +7,8 @@ import styles from './styles.module.css'
 export class MapComponent extends React.Component {
 	renderChildren() {
 		const {children} = this.props;
+
+		return this.renderMarkers();
 	}
 	renderMarkers() {
 		if (!this.props.places) { return null; }

@@ -45,9 +45,14 @@ export class Container extends React.Component {
 				className={styles.wrapper}>
 
 				<Header />
+
 				<Sidebar
 					title={'Restaurants'}
 					places={this.state.places} />
+
+				<div className={styles.content}>
+
+				</div>
 
 			</Map>
 		)

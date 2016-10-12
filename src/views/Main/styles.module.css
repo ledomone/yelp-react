@@ -13,6 +13,9 @@
 
 .content {
 	position: relative;
-	flex: 2;
 	top: var(--topbar-height);
+	left: 0;
+
+	flex: 1;
+	order: 1;
 }

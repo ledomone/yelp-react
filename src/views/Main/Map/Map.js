@@ -5,6 +5,9 @@ import Map, { Marker } from 'google-maps-react'
 import styles from './styles.module.css'
 
 export class MapComponent extends React.Component {
+	renderChildren() {
+		const {children} = this.props;
+	}
 	renderMarkers() {
 		if (!this.props.places) { return null; }
 		return this.props.places.map(place => {
@@ -21,7 +24,7 @@ export class MapComponent extends React.Component {
 		return (
 			<Map google={this.props.google}
 				className={styles.map}>
-				{this.renderMarkers()}
+				{this.renderChildren()}
 			</Map>
 		)
 	}

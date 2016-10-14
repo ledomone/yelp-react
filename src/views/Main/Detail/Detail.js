@@ -14,16 +14,12 @@ export class Detail extends React.Component {
 	}
 
 	componentDidMount() {
-		console.log(this.props);
 		if (this.props.map) {
-			console.log('aaa ' + this.props.map);
 			this.getDetails(this.props.map);
 		}
 	}
 
 	componentDidUpdate(prevProps) {
-		console.log('did update: ');
-		console.log(prevProps);
 		if (this.props.map && // make sure we have a map
 			(prevProps.map !== this.props.map ||
 				prevProps.params.placeId !== this.props.params.placeId)) {

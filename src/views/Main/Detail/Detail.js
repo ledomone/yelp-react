@@ -24,8 +24,6 @@ export class Detail extends React.Component {
 			(prevProps.map !== this.props.map ||
 				prevProps.params.placeId !== this.props.params.placeId)) {
 			this.getDetails(this.props.map);
-		} else {
-			console.log('no map!');
 		}
 	}
 

@@ -18,6 +18,7 @@
 		display: block;
 		flex-direction: row;
 		order: 1;
+		flex: 1;
 	}
 
 	.heading {

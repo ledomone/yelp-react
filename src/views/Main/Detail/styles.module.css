@@ -1,4 +1,17 @@
 @import url("../../../styles/base.css");
+@import url("../../../styles/colors.css");
+@import url("../../../styles/queries.css");
+
+.flex {
+	display: flex;
+	margin: 0;
+
+	width: 100%;
+	-webkit-box-orient: horizontal;
+	-o-box-orient: horizontal;
+
+	flex-direction: column;
+}
 
 .header {
 	padding: 0 var(--padding);
@@ -8,6 +21,9 @@
 }
 
 .details {
+	composes: flex;
+	flex-direction: column;
+
 	/* a little bit of padding */
 	padding: 0 var(--padding);
 

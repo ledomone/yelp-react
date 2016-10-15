@@ -10,14 +10,15 @@ import Sidebar from 'components/Sidebar/Sidebar'
 import styles from './styles.module.css'
 
 export class Container extends React.Component {
-	constructor(props) {
-		super(props);
+	constructor(props, context) {
+		super(props, context);
 
 		this.state = {
 			places: [],
 			pagination: null
 		}
 	}
+
 	onReady(mapProps, map) {
 		const {google} = this.props;
 		const opts = {
@@ -38,6 +39,8 @@ export class Container extends React.Component {
 			});
 	}
 
+	onMapMove() {}
+
 	onMarkerClick(item) {
 		const {push} = this.context.router;
 		const {place} = item; // place prop
@@ -55,7 +58,9 @@ export class Container extends React.Component {
 					places: this.state.places,
 					loaded: this.props.loaded,
 					router: this.props.router,
-					onMarkerClick: this.onMarkerClick.bind(this)
+					onMove: this.onMapMove.bind(this),
+					onMarkerClick: this.onMarkerClick.bind(this),
+					zoom: this.props.zoom
 				}
 			);
 		}

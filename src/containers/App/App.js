@@ -3,6 +3,10 @@ import { Router } from 'react-router';
 
 
 class App extends React.Component {
+	static contexTypes = {
+		router: PropTypes.object
+	}
+	
 	static propTypes = {
 		routes: PropTypes.object.isRequired,
 		history: PropTypes.object.isRequired

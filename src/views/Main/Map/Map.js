@@ -28,6 +28,7 @@ export class MapComponent extends React.Component {
 					name={place.id}
 					place={place}
 					onClick={this.props.onMarkerClick.bind(this)}
+					map={this.props.map}
 					position={place.geometry.location}
 				/>
 			)
@@ -41,6 +42,9 @@ export class MapComponent extends React.Component {
 			<Map map={this.props.map}
 				google={this.props.google}
 				className={styles.map}
+				zoom={this.props.zoom}
+				onRecenter={this.props.onMove}
+				onDragend={this.props.onMove}
 				onClick={this.props.onClick}
 				visible={!children || React.Children.count(children) == 0}
 				>
@@ -52,6 +56,11 @@ export class MapComponent extends React.Component {
 
 MapComponent.propTypes = {
 	onMarkerClick: T.func
+}
+
+const identity = (...a) => a;
+MapComponent.defaultProps = {
+	onMarkerClick: identity
 }
 
 export default MapComponent
